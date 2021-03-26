@@ -11,6 +11,7 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
+    "@types/vuelidate": "^0.7.14",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "node-sass": "^4.12.0",
