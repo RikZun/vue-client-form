@@ -90,7 +90,6 @@ export default Vue.extend({
   methods: {
     chechFields() { 
       this.$v.fields.$touch()
-      this.completed = true
       if (!this.$v.fields.$error) this.completed = true
     }
   },
@@ -217,10 +216,9 @@ h3
     &:focus
       outline: none
 
-
-
 .popup
-  position: absolute
+  position: fixed
+  z-index: 1
   width: -webkit-fill-available
   height: -webkit-fill-available
   display: flex
@@ -265,5 +263,4 @@ h3
       font-size: 14px
       overflow: hidden
       text-overflow: ellipsis
-
 </style>
