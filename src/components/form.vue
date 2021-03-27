@@ -1,14 +1,27 @@
 <template>
   <div class="group" :style="{gridColumnEnd: length ? 'span ' + length : ''}">
-    <label>{{ label }}</label>
+    <div class="title">
+      <label>{{ label }}</label>
+      <label v-if="error" class="error--text">Ошибка</label>
+    </div>
 
-    <select v-if="options">
+    <select v-if="options" 
+      @change="rt" 
+      v-model="value"
+      :class="error ? 'error' : ''"
+    >
       <option v-for="option of options" :key="option">
         {{ option }}
       </option>
     </select>
 
-    <input v-else :placeholder="placeholder" type="text">
+    <input v-else
+      @input="rt"
+      v-model="value"
+      :placeholder="placeholder"
+      :class="error ? 'error' : ''"
+      type="text"
+    >
   </div>
 </template>
 
@@ -26,9 +39,17 @@ export default Vue.extend({
     },
     options: {
       type: Array
+    },
+    error: {
+      type: Boolean
     }
   },
-  data() { return { val: '' } },
+  data() { return { value: '' } },
+  methods: {
+    rt() {
+      this.$emit('value', this.value)
+    }
+  }
 })
 </script>
 
@@ -37,11 +58,12 @@ export default Vue.extend({
   display: flex
   flex-direction: column
 
-label
+.title
   font-weight: 200
   font-size: 14px
   margin: 14px 0 3px 0
-  display: inline-block
+  display: inline-flex
+  justify-content: space-between
 
 %input-block
   font-size: 14px
@@ -62,4 +84,9 @@ select
   height: 28px
   padding-inline: 8px
 
+.error
+  border: 1px solid red
+
+.error--text
+  color: red
 </style>
