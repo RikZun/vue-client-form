@@ -7,3 +7,9 @@
     git clone https://github.com/RikZun/vue-client-form.git
     cd vue-client-form
     npm install
+    
+## Запуск
+    npm run serve
+    
+## Сборка
+    npm run build
