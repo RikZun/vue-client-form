@@ -66,7 +66,7 @@
 import { validationMixin } from 'vuelidate'
 import { required, helpers } from 'vuelidate/lib/validators'
 import Vue from 'vue'
-import Form from '@/components/Form.vue'
+import Form from '@/components/form.vue'
 
 export default Vue.extend({
   name: 'App',
