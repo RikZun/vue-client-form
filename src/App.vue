@@ -219,8 +219,8 @@ h3
 .popup
   position: fixed
   z-index: 1
-  width: -webkit-fill-available
-  height: -webkit-fill-available
+  width: 100%
+  height: 100%
   display: flex
   justify-content: center
   align-items: center
